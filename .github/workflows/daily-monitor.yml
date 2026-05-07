@@ -1,0 +1,46 @@
+# Daily digest: RSS (+ optional NewsAPI) → Markdown + Slack.
+# Schedule uses UTC. Edit the cron expression to change run time.
+name: Daily data center news monitor
+
+on:
+  schedule:
+    # 15:00 UTC every day — adjust as needed
+    - cron: "0 15 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    env:
+      FEED_URLS: ${{ vars.FEED_URLS }}
+      KEYWORDS: ${{ vars.KEYWORDS }}
+      NEWSAPI_QUERY: ${{ vars.NEWSAPI_QUERY }}
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
+      LOOKBACK_HOURS: "48"
+      NEWSAPI_PAGE_SIZE: "40"
+      REQUIRE_SLACK_WEBHOOK: "true"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run monitor
+        run: python monitor.py
+
+      - name: Upload Markdown digest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-digest-${{ github.run_id }}
+          path: reports/daily_report_*.md
+          if-no-files-found: warn
