@@ -229,7 +229,13 @@ def dedupe(articles: list[Article]) -> list[Article]:
     return uniq
 
 
-def write_markdown(path: str, date_str: str, articles: list[Article]) -> None:
+def write_markdown(
+    path: str,
+    date_str: str,
+    articles: list[Article],
+    *,
+    scanned_total: int | None = None,
+) -> None:
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     lines = [
         f"# Data center / downtime digest — {date_str}",
@@ -239,6 +245,9 @@ def write_markdown(path: str, date_str: str, articles: list[Article]) -> None:
         f"**{len(articles)}** matching articles.",
         "",
     ]
+    if scanned_total is not None:
+        lines.append(f"_**Scanned** {scanned_total} article(s) from RSS/NewsAPI before keyword filter._")
+        lines.append("")
     for a in articles:
         kw = ", ".join(a.matched_keywords)
         pub = f" — _{a.published}_" if a.published else ""
@@ -259,10 +268,30 @@ def write_markdown(path: str, date_str: str, articles: list[Article]) -> None:
         f.write("\n".join(lines))
 
 
-def build_slack_text(date_str: str, articles: list[Article]) -> str:
+def build_slack_text(
+    date_str: str,
+    articles: list[Article],
+    *,
+    scanned_total: int | None = None,
+) -> str:
     header = f"*Daily data center / downtime digest* — {date_str}\n"
     if not articles:
-        return header + "_No matches today (keywords may be too strict)._"
+        body = "_No keyword matches today._\n"
+        if scanned_total is not None:
+            if scanned_total == 0:
+                body += (
+                    "_No articles were fetched — check `FEED_URLS` (and NewsAPI key/query if used)._"
+                )
+            else:
+                body += (
+                    f"_Scanned {scanned_total} article(s); none matched your `KEYWORDS` "
+                    "(title/summary substring match, case-insensitive)._\n"
+                    "_Try broader phrases, e.g. `disruption`, `degradation`, "
+                    "`unavailable`, `error`, `failure`, `region`, `datacenter`._"
+                )
+        else:
+            body += "_Try broadening `KEYWORDS` in repo Variables._"
+        return header + body
 
     lines = [header, f"_{len(articles)} article(s). Showing up to {SLACK_BULLET_CAP}._", ""]
     for a in articles[:SLACK_BULLET_CAP]:
@@ -334,15 +363,23 @@ def main() -> int:
     elif newsapi_key and not newsapi_query:
         print("[newsapi] NEWSAPI_KEY set but NEWSAPI_QUERY empty; skipping NewsAPI.", file=sys.stderr)
 
+    scanned_before_keywords = len(all_articles)
     filtered = filter_articles(all_articles, keywords)
     final = dedupe(filtered)
 
     today = datetime.now(timezone.utc).date().isoformat()
     report_path = os.path.join("reports", f"daily_report_{today}.md")
-    write_markdown(report_path, today, final)
-    print(f"Wrote {report_path} ({len(final)} articles)")
+    write_markdown(
+        report_path,
+        today,
+        final,
+        scanned_total=scanned_before_keywords,
+    )
+    print(
+        f"Wrote {report_path} ({len(final)} matches from {scanned_before_keywords} scanned articles)",
+    )
 
-    slack_body = build_slack_text(today, final)
+    slack_body = build_slack_text(today, final, scanned_total=scanned_before_keywords)
     if slack_url:
         try:
             post_slack(slack_url, slack_body)
