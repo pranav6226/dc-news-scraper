@@ -18,6 +18,7 @@ jobs:
       FEED_URLS: ${{ vars.FEED_URLS }}
       KEYWORDS: ${{ vars.KEYWORDS }}
       NEWSAPI_QUERY: ${{ vars.NEWSAPI_QUERY }}
+      OUTAGE_SIGNALS: ${{ vars.OUTAGE_SIGNALS }}
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
       LOOKBACK_HOURS: "48"

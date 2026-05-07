@@ -1,6 +1,8 @@
 # Data center downtime news monitor
 
-A small daily pipeline: pull articles from RSS feeds (and optionally [NewsAPI](https://newsapi.org/)), filter for outage-related keywords, deduplicate by URL, write a Markdown digest under `reports/`, and post a short summary to Slack via an [incoming webhook](https://api.slack.com/messaging/webhooks).
+A small daily pipeline: pull articles from RSS feeds (and optionally [NewsAPI](https://newsapi.org/)), filter for **downtime-related** content, deduplicate by URL, write a Markdown digest under `reports/`, and post a short summary to Slack via an [incoming webhook](https://api.slack.com/messaging/webhooks).
+
+**Filtering:** each article must match at least one **`KEYWORDS`** phrase *and* (if you set it) at least one **`OUTAGE_SIGNALS`** phrase — all in the title or summary. Use `KEYWORDS` for *topic* (providers, “data center”, colocation). Use `OUTAGE_SIGNALS` for *problem* language (outage, disruption, degradation, …). That stops “generic DC industry news” from flooding Slack when `KEYWORDS` is broad.
 
 ## Quick setup
 
@@ -20,11 +22,14 @@ A small daily pipeline: pull articles from RSS feeds (and optionally [NewsAPI](h
    | Name | Example |
    |------|---------|
    | `FEED_URLS` | `https://www.datacenterdynamics.com/en/rss/,https://status.aws.amazon.com/rss/all.rss` |
-   | `KEYWORDS` | `aws outage,azure outage,google cloud outage,outage,downtime,incident` |
-   | `NEWSAPI_QUERY` | `"data center" AND (outage OR downtime OR incident OR failure)` |
+   | `KEYWORDS` | `AWS,Azure,Google Cloud,Equinix,data center,datacenter,colocation` |
+   | `OUTAGE_SIGNALS` | `outage,downtime,service disruption,degradation,incident,unavailable,failure,error rate` |
+   | `NEWSAPI_QUERY` | `(outage OR downtime OR "service disruption" OR degradation) AND ("data center" OR datacenter OR AWS OR Equinix)` |
+
+   Set **`OUTAGE_SIGNALS`** on GitHub to silence non-outage DC news. Leave it empty only if you want keyword-only matching (noisier).
 
 5. **Run the workflow manually once**: Actions → *Daily data center news monitor* → *Run workflow*. Then verify:
-   - `FEED_URLS` and `KEYWORDS` variables are set (`NEWSAPI_QUERY` may be empty if you skip NewsAPI).
+   - `FEED_URLS`, `KEYWORDS`, and (recommended) `OUTAGE_SIGNALS` are set (`NEWSAPI_QUERY` may be empty if you skip NewsAPI).
    - Secret `SLACK_WEBHOOK_URL` is set (the workflow sets `REQUIRE_SLACK_WEBHOOK=true`).
    - The job succeeds, Slack shows the digest, and the **daily-digest-*** artifact contains `reports/daily_report_YYYY-MM-DD.md`.
 
@@ -52,4 +57,4 @@ With `REQUIRE_SLACK_WEBHOOK=false` (default), you can omit `SLACK_WEBHOOK_URL` l
 
 ## Optional environment variables
 
-See [.env.example](.env.example) for `LOOKBACK_HOURS`, `NEWSAPI_PAGE_SIZE`, and `REQUIRE_SLACK_WEBHOOK`.
+See [.env.example](.env.example) for `OUTAGE_SIGNALS`, `LOOKBACK_HOURS`, `NEWSAPI_PAGE_SIZE`, and `REQUIRE_SLACK_WEBHOOK`.

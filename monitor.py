@@ -90,6 +90,7 @@ class Article:
     origin: str
     published: str | None = None
     matched_keywords: list[str] = field(default_factory=list)
+    matched_signals: list[str] = field(default_factory=list)
 
     @property
     def dedupe_key(self) -> str:
@@ -205,16 +206,35 @@ def fetch_newsapi(
 def filter_articles(
     articles: list[Article],
     keywords: list[str],
-) -> list[Article]:
+    outage_signals: list[str],
+) -> tuple[list[Article], int]:
+    """Keep articles matching KEYWORDS. If outage_signals is non-empty, also require >=1 signal.
+
+    Returns (matched, dropped_after_keyword_only) where dropped counts articles that matched
+    keywords but failed the outage-signal gate.
+    """
     matched: list[Article] = []
+    dropped_after_keywords = 0
+
     for a in articles:
         blob = f"{a.title}\n{a.summary}"
         hits = first_match_keywords(blob, keywords)
         if not hits:
             continue
+
+        if outage_signals:
+            sigs = first_match_keywords(blob, outage_signals)
+            if not sigs:
+                dropped_after_keywords += 1
+                continue
+            a.matched_signals = sigs
+        else:
+            a.matched_signals = []
+
         a.matched_keywords = hits
         matched.append(a)
-    return matched
+
+    return matched, dropped_after_keywords
 
 
 def dedupe(articles: list[Article]) -> list[Article]:
@@ -235,6 +255,7 @@ def write_markdown(
     articles: list[Article],
     *,
     scanned_total: int | None = None,
+    filter_note: str | None = None,
 ) -> None:
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     lines = [
@@ -248,8 +269,14 @@ def write_markdown(
     if scanned_total is not None:
         lines.append(f"_**Scanned** {scanned_total} article(s) from RSS/NewsAPI before keyword filter._")
         lines.append("")
+    if filter_note:
+        lines.append(filter_note)
+        lines.append("")
     for a in articles:
         kw = ", ".join(a.matched_keywords)
+        sig = ""
+        if a.matched_signals:
+            sig = f"\n- **Outage signal:** {', '.join(a.matched_signals)}"
         pub = f" — _{a.published}_" if a.published else ""
         lines.extend(
             [
@@ -257,7 +284,7 @@ def write_markdown(
                 "",
                 f"- **Link:** {a.url}",
                 f"- **Source:** {a.source} ({a.origin}){pub}",
-                f"- **Matched:** {kw}",
+                f"- **Matched keywords:** {kw}{sig}",
                 "",
             ]
         )
@@ -273,24 +300,31 @@ def build_slack_text(
     articles: list[Article],
     *,
     scanned_total: int | None = None,
+    dropped_by_signal: int = 0,
 ) -> str:
     header = f"*Daily data center / downtime digest* — {date_str}\n"
     if not articles:
-        body = "_No keyword matches today._\n"
+        body = "_No downtime-focused matches today._\n"
         if scanned_total is not None:
             if scanned_total == 0:
                 body += (
                     "_No articles were fetched — check `FEED_URLS` (and NewsAPI key/query if used)._"
                 )
+            elif dropped_by_signal > 0:
+                body += (
+                    f"_{dropped_by_signal} article(s) matched `KEYWORDS` but failed the `OUTAGE_SIGNALS` "
+                    "gate (title/summary must include an outage-related phrase too)._\n"
+                    "_Remove vague `KEYWORDS` like generic “data center” / provider names alone; "
+                    "keep those only if `OUTAGE_SIGNALS` is set._"
+                )
             else:
                 body += (
                     f"_Scanned {scanned_total} article(s); none matched your `KEYWORDS` "
                     "(title/summary substring match, case-insensitive)._\n"
-                    "_Try broader phrases, e.g. `disruption`, `degradation`, "
-                    "`unavailable`, `error`, `failure`, `region`, `datacenter`._"
+                    "_Try broader topic terms, or set `OUTAGE_SIGNALS` to require downtime language._"
                 )
         else:
-            body += "_Try broadening `KEYWORDS` in repo Variables._"
+            body += "_Configure `KEYWORDS` and (recommended) `OUTAGE_SIGNALS` in repo Variables._"
         return header + body
 
     lines = [header, f"_{len(articles)} article(s). Showing up to {SLACK_BULLET_CAP}._", ""]
@@ -298,7 +332,16 @@ def build_slack_text(
         kw = ", ".join(a.matched_keywords[:3])
         if len(a.matched_keywords) > 3:
             kw += ", …"
-        lines.append(f"• *{a.title[:120]}{'…' if len(a.title) > 120 else ''}*\n  {a.url}\n  _matched: {kw}_")
+        sig_note = ""
+        if a.matched_signals:
+            s = ", ".join(a.matched_signals[:2])
+            if len(a.matched_signals) > 2:
+                s += ", …"
+            sig_note = f"\n  _signal: {s}_"
+        lines.append(
+            f"• *{a.title[:120]}{'…' if len(a.title) > 120 else ''}*\n  {a.url}\n  "
+            f"_keywords: {kw}_{sig_note}"
+        )
 
     if len(articles) > SLACK_BULLET_CAP:
         lines.append(
@@ -324,6 +367,7 @@ def post_slack(webhook: str, text: str) -> None:
 def main() -> int:
     feed_urls = _split_csv(os.environ.get("FEED_URLS"))
     keywords = _split_csv(os.environ.get("KEYWORDS"))
+    outage_signals = _split_csv(os.environ.get("OUTAGE_SIGNALS"))
     newsapi_key = (os.environ.get("NEWSAPI_KEY") or "").strip()
     newsapi_query = (os.environ.get("NEWSAPI_QUERY") or "").strip()
     slack_url = (os.environ.get("SLACK_WEBHOOK_URL") or "").strip()
@@ -364,22 +408,41 @@ def main() -> int:
         print("[newsapi] NEWSAPI_KEY set but NEWSAPI_QUERY empty; skipping NewsAPI.", file=sys.stderr)
 
     scanned_before_keywords = len(all_articles)
-    filtered = filter_articles(all_articles, keywords)
+    filtered, dropped_by_signal = filter_articles(all_articles, keywords, outage_signals)
     final = dedupe(filtered)
+
+    if outage_signals:
+        print(
+            f"Outage filter: {len(final)} kept, {dropped_by_signal} dropped (keywords OK, no outage signal)",
+        )
 
     today = datetime.now(timezone.utc).date().isoformat()
     report_path = os.path.join("reports", f"daily_report_{today}.md")
+    filter_note = None
+    if outage_signals:
+        preview = ", ".join(outage_signals[:12])
+        if len(outage_signals) > 12:
+            preview += ", …"
+        filter_note = (
+            f"_**Outage gate:** each article must also match at least one of: {preview}_"
+        )
     write_markdown(
         report_path,
         today,
         final,
         scanned_total=scanned_before_keywords,
+        filter_note=filter_note,
     )
     print(
         f"Wrote {report_path} ({len(final)} matches from {scanned_before_keywords} scanned articles)",
     )
 
-    slack_body = build_slack_text(today, final, scanned_total=scanned_before_keywords)
+    slack_body = build_slack_text(
+        today,
+        final,
+        scanned_total=scanned_before_keywords,
+        dropped_by_signal=dropped_by_signal,
+    )
     if slack_url:
         try:
             post_slack(slack_url, slack_body)
