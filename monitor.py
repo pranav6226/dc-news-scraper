@@ -21,6 +21,12 @@ NEWSAPI_URL = "https://newsapi.org/v2/everything"
 SLACK_TEXT_MAX = 3500
 SLACK_BULLET_CAP = 12
 
+# Single-token topic terms that must substring-match (e.g. inside "colocation"), not \b…\b.
+_SUBSTRING_WORD_TOKENS = frozenset({"colo"})
+
+# Single-token phrases that prefix-match longer words (evacuat → evacuation).
+_PREFIX_WORD_TOKENS = frozenset({"evacuat"})
+
 
 def _truthy(val: str | None) -> bool:
     if not val:
@@ -55,16 +61,63 @@ def normalize_url(url: str | None) -> str | None:
         return url.strip()
 
 
+def phrase_matches(text: str, phrase: str) -> bool:
+    """Match a keyword or signal phrase with fewer substring false positives.
+
+    - Multi-word phrases: case-insensitive substring.
+    - Very short ALL-CAPS ASCII tokens (e.g. AWS, GCP, NTT): whole-token match.
+    - ``colo``: substring so it still hits "colocation".
+    - ``evacuat``: word-start prefix so it hits "evacuation" / "evacuated".
+    - Other single-token words: ``\\bphrase\\b`` (e.g. ``fire`` vs ``bonfire``, ``azure`` vs accidents).
+    """
+    if not text or not phrase or not phrase.strip():
+        return False
+    raw = phrase.strip()
+    if " " in raw:
+        return raw.lower() in text.lower()
+
+    key = raw.lower()
+    lower = text.lower()
+    if key in _SUBSTRING_WORD_TOKENS:
+        return key in lower
+    if key in _PREFIX_WORD_TOKENS:
+        return bool(re.search(rf"\b{re.escape(key)}", lower, re.I))
+
+    if raw.isascii() and raw.isalpha() and raw.isupper() and len(raw) <= 6:
+        return bool(re.search(rf"\b{re.escape(raw)}\b", text, re.I))
+
+    if len(key) <= 32 and re.fullmatch(r"[a-z][a-z\-]*", key, re.I):
+        return bool(re.search(rf"\b{re.escape(key)}\b", lower, re.I))
+
+    return key in lower
+
+
 def first_match_keywords(text: str, keywords: Iterable[str]) -> list[str]:
-    """Return list of keyword phrases that appear in text (case-insensitive)."""
+    """Return list of keyword phrases that match in text."""
     if not text:
         return []
-    lower = text.lower()
     matched: list[str] = []
     for kw in keywords:
-        if kw.lower() in lower:
+        if phrase_matches(text, kw):
             matched.append(kw)
     return matched
+
+
+def junk_newsapi_url(url: str) -> bool:
+    """Drop consent / attribution URLs that duplicate real stories."""
+    if not url:
+        return True
+    try:
+        parts = urllib.parse.urlsplit(url.strip())
+        host = (parts.hostname or "").lower()
+        path = (parts.path or "").lower()
+    except Exception:
+        return False
+    if "consent.yahoo" in host:
+        return True
+    if host.endswith("yahoo.com") and "consent" in path:
+        return True
+    return False
 
 
 def host_matches_topic_relax(url: str, relax_hosts: Iterable[str]) -> bool:
@@ -205,6 +258,9 @@ def fetch_newsapi(
         u = art.get("url")
         if not u:
             continue
+        url_s = str(u).strip()
+        if junk_newsapi_url(url_s):
+            continue
         title = str(art.get("title") or "").strip() or "(no title)"
         summary = str(art.get("description") or "").strip()
         src = (art.get("source") or {}).get("name") or "newsapi"
@@ -212,7 +268,7 @@ def fetch_newsapi(
         out.append(
             Article(
                 title=title,
-                url=str(u).strip(),
+                url=url_s,
                 summary=summary,
                 source=str(src),
                 origin="newsapi",
@@ -227,12 +283,16 @@ def filter_articles(
     keywords: list[str],
     outage_signals: list[str],
     topic_relax_hosts: list[str],
+    newsapi_anchors: list[str],
 ) -> tuple[list[Article], int]:
     """Keep articles matching KEYWORDS — or trusted DC-news hosts when OUTAGE_SIGNALS is used.
 
     If ``topic_relax_hosts`` is set and ``outage_signals`` is non-empty, URLs on those hosts
     skip KEYWORDS and must only match outage language (captures facility/colo outages on DCD etc.
     that never mention hyperscaler brands).
+
+    When ``newsapi_anchors`` is non-empty, ``origin=newsapi`` items must match at least one anchor
+    phrase — NewsAPI often returns unrelated evacuations/fires that only hit broad outage words.
 
     Returns (matched, dropped_signal_gate) counting items that cleared topic gates but lacked
     an outage phrase when outage_signals was required.
@@ -242,6 +302,11 @@ def filter_articles(
 
     for a in articles:
         blob = f"{a.title}\n{a.summary}"
+
+        if a.origin == "newsapi" and newsapi_anchors:
+            if not first_match_keywords(blob, newsapi_anchors):
+                continue
+
         hits = first_match_keywords(blob, keywords)
 
         relaxed = bool(
@@ -402,6 +467,7 @@ def main() -> int:
     keywords = _split_csv(os.environ.get("KEYWORDS"))
     outage_signals = _split_csv(os.environ.get("OUTAGE_SIGNALS"))
     topic_relax_hosts = _split_csv(os.environ.get("TOPIC_RELAX_HOSTS"))
+    newsapi_anchors = _split_csv(os.environ.get("NEWSAPI_ANCHORS"))
     newsapi_key = (os.environ.get("NEWSAPI_KEY") or "").strip()
     newsapi_query = (os.environ.get("NEWSAPI_QUERY") or "").strip()
     slack_url = (os.environ.get("SLACK_WEBHOOK_URL") or "").strip()
@@ -437,6 +503,12 @@ def main() -> int:
         print("[rss] warning: no entries parsed from any feed URL", file=sys.stderr)
 
     if newsapi_key and newsapi_query:
+        if not newsapi_anchors:
+            print(
+                "[newsapi] NEWSAPI_ANCHORS is empty — NewsAPI noise is much higher without it. "
+                "Set NEWSAPI_ANCHORS (see .env.example).",
+                file=sys.stderr,
+            )
         all_articles.extend(fetch_newsapi(newsapi_key, newsapi_query, lookback, page_size))
     elif newsapi_key and not newsapi_query:
         print("[newsapi] NEWSAPI_KEY set but NEWSAPI_QUERY empty; skipping NewsAPI.", file=sys.stderr)
@@ -450,6 +522,7 @@ def main() -> int:
         keywords,
         outage_signals,
         topic_relax_hosts,
+        newsapi_anchors,
     )
     final = dedupe(filtered)
 
@@ -461,22 +534,29 @@ def main() -> int:
 
     today = datetime.now(timezone.utc).date().isoformat()
     report_path = os.path.join("reports", f"daily_report_{today}.md")
-    filter_note = None
+    note_parts: list[str] = []
     if outage_signals:
         preview = ", ".join(outage_signals[:12])
         if len(outage_signals) > 12:
             preview += ", …"
-        filter_note = (
+        note_parts.append(
             f"_**Outage gate:** each article must also match at least one of: {preview}_"
         )
         if topic_relax_hosts:
             th = ", ".join(topic_relax_hosts)
-            filter_note += (
-                f"\n\n"
+            note_parts.append(
                 f"_**Topic relax ({th}):** pages on those hosts skip "
                 "`KEYWORDS` only when items also pass the outage phrases above "
-                '(industry outage stories often omit hyperscaler keywords)._'
+                "(industry outage stories often omit hyperscaler keywords)._"
             )
+    if newsapi_anchors:
+        na = ", ".join(newsapi_anchors[:10])
+        if len(newsapi_anchors) > 10:
+            na += ", …"
+        note_parts.append(
+            f"_**NewsAPI anchor gate:** each NewsAPI hit must also match one of: {na}_"
+        )
+    filter_note = "\n\n".join(note_parts) if note_parts else None
     write_markdown(
         report_path,
         today,

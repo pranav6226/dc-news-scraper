@@ -17,6 +17,8 @@ jobs:
     env:
       FEED_URLS: ${{ vars.FEED_URLS }}
       KEYWORDS: ${{ vars.KEYWORDS }}
+      TOPIC_RELAX_HOSTS: ${{ vars.TOPIC_RELAX_HOSTS }}
+      NEWSAPI_ANCHORS: ${{ vars.NEWSAPI_ANCHORS }}
       NEWSAPI_QUERY: ${{ vars.NEWSAPI_QUERY }}
       OUTAGE_SIGNALS: ${{ vars.OUTAGE_SIGNALS }}
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
