@@ -67,6 +67,25 @@ def first_match_keywords(text: str, keywords: Iterable[str]) -> list[str]:
     return matched
 
 
+def host_matches_topic_relax(url: str, relax_hosts: Iterable[str]) -> bool:
+    """True if hostname equals or ends with one of relax_hosts (e.g. datacenterdynamics.com)."""
+    if not url or not relax_hosts:
+        return False
+    try:
+        hostname = (urllib.parse.urlsplit(url.strip()).hostname or "").lower()
+    except Exception:
+        return False
+    if not hostname:
+        return False
+    for raw in relax_hosts:
+        suf = raw.strip().lower().lstrip(".")
+        if not suf:
+            continue
+        if hostname == suf or hostname.endswith("." + suf):
+            return True
+    return False
+
+
 def rss_published(entry: feedparser.FeedParserDict) -> str | None:
     for key in ("published", "updated", "created"):
         raw = entry.get(key)
@@ -207,34 +226,48 @@ def filter_articles(
     articles: list[Article],
     keywords: list[str],
     outage_signals: list[str],
+    topic_relax_hosts: list[str],
 ) -> tuple[list[Article], int]:
-    """Keep articles matching KEYWORDS. If outage_signals is non-empty, also require >=1 signal.
+    """Keep articles matching KEYWORDS — or trusted DC-news hosts when OUTAGE_SIGNALS is used.
 
-    Returns (matched, dropped_after_keyword_only) where dropped counts articles that matched
-    keywords but failed the outage-signal gate.
+    If ``topic_relax_hosts`` is set and ``outage_signals`` is non-empty, URLs on those hosts
+    skip KEYWORDS and must only match outage language (captures facility/colo outages on DCD etc.
+    that never mention hyperscaler brands).
+
+    Returns (matched, dropped_signal_gate) counting items that cleared topic gates but lacked
+    an outage phrase when outage_signals was required.
     """
     matched: list[Article] = []
-    dropped_after_keywords = 0
+    dropped_signal_gate = 0
 
     for a in articles:
         blob = f"{a.title}\n{a.summary}"
         hits = first_match_keywords(blob, keywords)
-        if not hits:
+
+        relaxed = bool(
+            outage_signals and topic_relax_hosts and host_matches_topic_relax(a.url, topic_relax_hosts)
+        )
+        topic_ok = bool(hits) or relaxed
+
+        if not topic_ok:
             continue
 
         if outage_signals:
             sigs = first_match_keywords(blob, outage_signals)
             if not sigs:
-                dropped_after_keywords += 1
+                dropped_signal_gate += 1
                 continue
             a.matched_signals = sigs
         else:
             a.matched_signals = []
 
-        a.matched_keywords = hits
+        if hits:
+            a.matched_keywords = hits
+        else:
+            a.matched_keywords = ["(trusted DC-news source, topic gate relaxed)"]
         matched.append(a)
 
-    return matched, dropped_after_keywords
+    return matched, dropped_signal_gate
 
 
 def dedupe(articles: list[Article]) -> list[Article]:
@@ -312,10 +345,10 @@ def build_slack_text(
                 )
             elif dropped_by_signal > 0:
                 body += (
-                    f"_{dropped_by_signal} article(s) matched `KEYWORDS` but failed the `OUTAGE_SIGNALS` "
-                    "gate (title/summary must include an outage-related phrase too)._\n"
-                    "_Remove vague `KEYWORDS` like generic “data center” / provider names alone; "
-                    "keep those only if `OUTAGE_SIGNALS` is set._"
+                    f"_{dropped_by_signal} article(s) cleared the topic gate but failed "
+                    "`OUTAGE_SIGNALS` (title/summary must include outage-related wording)._\n"
+                    "_If picks skew to one hyperscaler RSS, widen `KEYWORDS`, add feeds, "
+                    "or rely on `TOPIC_RELAX_HOSTS` + DCD outage headlines._"
                 )
             else:
                 body += (
@@ -368,6 +401,7 @@ def main() -> int:
     feed_urls = _split_csv(os.environ.get("FEED_URLS"))
     keywords = _split_csv(os.environ.get("KEYWORDS"))
     outage_signals = _split_csv(os.environ.get("OUTAGE_SIGNALS"))
+    topic_relax_hosts = _split_csv(os.environ.get("TOPIC_RELAX_HOSTS"))
     newsapi_key = (os.environ.get("NEWSAPI_KEY") or "").strip()
     newsapi_query = (os.environ.get("NEWSAPI_QUERY") or "").strip()
     slack_url = (os.environ.get("SLACK_WEBHOOK_URL") or "").strip()
@@ -408,12 +442,21 @@ def main() -> int:
         print("[newsapi] NEWSAPI_KEY set but NEWSAPI_QUERY empty; skipping NewsAPI.", file=sys.stderr)
 
     scanned_before_keywords = len(all_articles)
-    filtered, dropped_by_signal = filter_articles(all_articles, keywords, outage_signals)
+    if topic_relax_hosts and outage_signals:
+        print(f"Topic relaxation active for hosts: {', '.join(topic_relax_hosts)}", file=sys.stderr)
+
+    filtered, dropped_by_signal = filter_articles(
+        all_articles,
+        keywords,
+        outage_signals,
+        topic_relax_hosts,
+    )
     final = dedupe(filtered)
 
     if outage_signals:
         print(
-            f"Outage filter: {len(final)} kept, {dropped_by_signal} dropped (keywords OK, no outage signal)",
+            f"Outage filter: {len(final)} kept, {dropped_by_signal} dropped "
+            "(topic OK, no outage signal)",
         )
 
     today = datetime.now(timezone.utc).date().isoformat()
@@ -426,6 +469,14 @@ def main() -> int:
         filter_note = (
             f"_**Outage gate:** each article must also match at least one of: {preview}_"
         )
+        if topic_relax_hosts:
+            th = ", ".join(topic_relax_hosts)
+            filter_note += (
+                f"\n\n"
+                f"_**Topic relax ({th}):** pages on those hosts skip "
+                "`KEYWORDS` only when items also pass the outage phrases above "
+                '(industry outage stories often omit hyperscaler keywords)._'
+            )
     write_markdown(
         report_path,
         today,

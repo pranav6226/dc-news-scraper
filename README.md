@@ -2,7 +2,9 @@
 
 A small daily pipeline: pull articles from RSS feeds (and optionally [NewsAPI](https://newsapi.org/)), filter for **downtime-related** content, deduplicate by URL, write a Markdown digest under `reports/`, and post a short summary to Slack via an [incoming webhook](https://api.slack.com/messaging/webhooks).
 
-**Filtering:** each article must match at least one **`KEYWORDS`** phrase *and* (if you set it) at least one **`OUTAGE_SIGNALS`** phrase — all in the title or summary. Use `KEYWORDS` for *topic* (providers, “data center”, colocation). Use `OUTAGE_SIGNALS` for *problem* language (outage, disruption, degradation, …). That stops “generic DC industry news” from flooding Slack when `KEYWORDS` is broad.
+**Filtering:** each article must match at least one **`KEYWORDS`** phrase *and* (if you set it) at least one **`OUTAGE_SIGNALS`** phrase — title or summary substring match (case-insensitive). Use **`TOPIC_RELAX_HOSTS`** so sites like **[Data Centre Dynamics](https://www.datacenterdynamics.com/)** can contribute facility/colo outage headlines that never mention hyperscaler keywords: relaxation applies **only** when **`OUTAGE_SIGNALS` is non-empty** (those sites still must show outage/problem language).
+
+Use **`KEYWORDS`** for *topic* (multi-cloud operators, “data center”, colocation brands). **`OUTAGE_SIGNALS`** catches *problem* language (fires, blackout, degraded service, …) so Slack is not flooded with generic DC announcements.
 
 ## Quick setup
 
@@ -21,12 +23,13 @@ A small daily pipeline: pull articles from RSS feeds (and optionally [NewsAPI](h
 
    | Name | Example |
    |------|---------|
-   | `FEED_URLS` | `https://www.datacenterdynamics.com/en/rss/,https://status.aws.amazon.com/rss/all.rss` |
-   | `KEYWORDS` | `AWS,Azure,Google Cloud,Equinix,data center,datacenter,colocation` |
-   | `OUTAGE_SIGNALS` | `outage,downtime,service disruption,degradation,incident,unavailable,failure,error rate` |
-   | `NEWSAPI_QUERY` | `(outage OR downtime OR "service disruption" OR degradation) AND ("data center" OR datacenter OR AWS OR Equinix)` |
+   | `FEED_URLS` | `https://www.datacenterdynamics.com/en/rss/,https://status.aws.amazon.com/rss/all.rss,https://azure.status.microsoft/status/feed/` (optional: add `https://www.cloudflarestatus.com/history.atom` for edge/PoP work — often many *scheduled* maintenance items) |
+   | `KEYWORDS` | Many providers + neutral terms (`data center`, `colo`, `facility`, …) — see [.env.example](.env.example) |
+   | `TOPIC_RELAX_HOSTS` | `datacenterdynamics.com` (optional — pairs with **`OUTAGE_SIGNALS`**) |
+   | `OUTAGE_SIGNALS` | `outage`, `fire`, `blackout`, `degraded`, … — recommended |
+   | `NEWSAPI_QUERY` | Wide cloud + DC operator OR-list — see [.env.example](.env.example) |
 
-   Set **`OUTAGE_SIGNALS`** on GitHub to silence non-outage DC news. Leave it empty only if you want keyword-only matching (noisier).
+   Set **`OUTAGE_SIGNALS`** on GitHub to silence non-outage DC news (and to enable **`TOPIC_RELAX_HOSTS`** for DCD). Leave **`OUTAGE_SIGNALS`** empty only for keyword-only mode (much noisier).
 
 5. **Run the workflow manually once**: Actions → *Daily data center news monitor* → *Run workflow*. Then verify:
    - `FEED_URLS`, `KEYWORDS`, and (recommended) `OUTAGE_SIGNALS` are set (`NEWSAPI_QUERY` may be empty if you skip NewsAPI).
@@ -43,8 +46,8 @@ python -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 cp .env.example .env
-# Edit .env with real values
-export $(grep -v '^#' .env | xargs)   # or set vars manually
+# Edit .env with real values (quote values that contain spaces, e.g. KEYWORDS="…")
+set -a && source .env && set +a         # zsh/bash
 python monitor.py
 ```
 
@@ -57,4 +60,6 @@ With `REQUIRE_SLACK_WEBHOOK=false` (default), you can omit `SLACK_WEBHOOK_URL` l
 
 ## Optional environment variables
 
-See [.env.example](.env.example) for `OUTAGE_SIGNALS`, `LOOKBACK_HOURS`, `NEWSAPI_PAGE_SIZE`, and `REQUIRE_SLACK_WEBHOOK`.
+See [.env.example](.env.example) for **`TOPIC_RELAX_HOSTS`**, `OUTAGE_SIGNALS`, default feeds, expanded `KEYWORDS`, `LOOKBACK_HOURS`, `NEWSAPI_PAGE_SIZE`, and `REQUIRE_SLACK_WEBHOOK`.
+
+**Bias toward AWS:** the AWS status **`all`** RSS emits many items; widening **`KEYWORDS`**, adding other status feeds (`Azure`, `Cloudflare`), and **`TOPIC_RELAX_HOSTS=datacenterdynamics.com`** rebalances toward colocation and facility outages.
