@@ -1,68 +1,61 @@
-# Data center downtime news monitor
+# Data center downtime monitor (CSV-scoped feeds)
 
-A small daily pipeline: pull articles from RSS feeds (and optionally [NewsAPI](https://newsapi.org/)), filter for **downtime-related** content, deduplicate by URL, write a Markdown digest under `reports/`, and post a short summary to Slack via an [incoming webhook](https://api.slack.com/messaging/webhooks).
+Daily job: read [`data/dc_companies.csv`](data/dc_companies.csv), rebuild [`data/company_feeds.json`](data/company_feeds.json) in CI (and locally when you run the generator), fetch every RSS/Atom endpoint, apply outage wording filters, dedupe, write Markdown under [`reports/`](reports/), then post Slack via an incoming webhook.
 
-**Filtering:** **`KEYWORDS`** and **`OUTAGE_SIGNALS`** use smarter matching than raw substring checks (short tokens such as **`AWS`** / **`GCP`** must appear as whole words so “straws” is not counted as **`AWS`**; **`fire`** must be a distinct word vs “bonfire”). Multi-word phrases (e.g. **`Google Cloud`**, **`service disruption`**) stay substring-based.
+**NewsAPI is unsupported.** For operators without a stable status/IR Atom feed, the manifest uses **Google News RSS** scoped to each legal entity plus DC / outage vocabulary; those hits still require **operator-name matching** in the headline or summary (and `OUTAGE_SIGNALS` when set).
 
-Use **`TOPIC_RELAX_HOSTS`** so sites like **[Data Centre Dynamics](https://www.datacenterdynamics.com/)** can contribute colo/DC outage headlines without naming a hyperscaler: relaxation applies **only** when **`OUTAGE_SIGNALS` is non-empty** (those pages still need outage/problem language).
+## Regenerate the manifest
 
-When NewsAPI is enabled, set **`NEWSAPI_ANCHORS`** so each hit must also mention real DC/cloud context (otherwise NewsAPI returns random factory fires, food-plant evacuations, and “failure” in unrelated headlines). Consent/redirect URLs (e.g. Yahoo cookie walls) are dropped.
+Whenever you edit the company CSV:
 
-## Quick setup
+```bash
+python scripts/generate_company_feeds.py
+```
 
-1. **Create a Slack incoming webhook** for the channel where you want alerts. Copy the webhook URL.
+This emits one **trusted** block per hyperscale/colo status or IR feed we ship in code, plus one **`official_only: false`** Google News block **per CSV row** (161 operators). GitHub Actions runs the same command before `monitor.py`.
 
-2. **Create a GitHub repository** and push this project (or use an existing repo).
+## Pipeline behavior
 
-3. **GitHub repository secrets** (Settings → Secrets and variables → Actions):
+| Input | Behavior |
+| --- | --- |
+| `data/company_feeds.json` | Feed manifest. **`official_only` omitted or `true`**: status / IR — **KEYWORDS waived**, still gated by `OUTAGE_SIGNALS` when set. **`official_only: false`**: Google News per company — **KEYWORDS waived** only after a **company / brand hint** matches in title+summary (see `hint_fragments` in [`monitor.py`](monitor.py)). |
+| `KEYWORDS` | Optional. Required for any `FEED_URLS` you add via env. May be empty when the manifest alone supplies all feeds. |
+| `OUTAGE_SIGNALS` | Strongly recommended. Whole-word / substring rules unchanged in [`monitor.py`](monitor.py). |
+| `TOPIC_RELAX_HOSTS` | Optional legacy trade-press shortcut (skips `KEYWORDS` when outage wording matches). |
 
-   | Name | Required | Description |
-   |------|----------|-------------|
-   | `SLACK_WEBHOOK_URL` | Yes (for Slack posts) | Incoming webhook URL |
-   | `NEWSAPI_KEY` | No | Enables NewsAPI discovery when set |
+## Coverage
 
-4. **GitHub repository variables** (same settings page, **Variables** tab):
+The runner prints `Manifest covers X/Y CSV labels`. After regeneration, **X should equal Y** (every CSV label appears in at least one manifest `companies` array). If a Google feed stops returning parseable RSS, fix the query in [`scripts/generate_company_feeds.py`](scripts/generate_company_feeds.py) or add a dedicated Atom URL to `OFFICIAL_BLOCKS` there.
 
-   | Name | Example |
-   |------|---------|
-   | `FEED_URLS` | Long comma-separated RSS/Atom list — default in [.env.example](.env.example) includes **DCD**, **AWS/Azure**, major **colo/REIT** (Digital Realty, DataBank, Equinix Metal), **CDN** (Akamai), **hosted cloud** (OVHcloud, IBM, DO, Linode, Scaleway, Snowflake), **Meta** status. Optional SaaS-heavy feeds (**GitHub**, **Twilio**, **Salesforce**, **Cloudflare**) are commented there. |
-   | `KEYWORDS` | DC/cloud operators and neutral terms (`data center`, `colo`, …) — see [.env.example](.env.example) (avoid bare **facility**; it matches any industrial building) |
-   | `TOPIC_RELAX_HOSTS` | `datacenterdynamics.com` (optional — pairs with **`OUTAGE_SIGNALS`**) |
-   | `OUTAGE_SIGNALS` | `outage`, `fire` (word-level), `blackout`, `degraded`, … — recommended |
-   | `NEWSAPI_ANCHORS` | Required for sane NewsAPI results — copy from [.env.example](.env.example); leave empty only if you accept noisy matches |
-   | `NEWSAPI_QUERY` | Infra-focused AND-clause — avoid bare `cloud` / `facility`; see [.env.example](.env.example) |
+## GitHub Actions
 
-   Set **`OUTAGE_SIGNALS`** on GitHub to silence non-outage DC news (and to enable **`TOPIC_RELAX_HOSTS`** for DCD). Leave **`OUTAGE_SIGNALS`** empty only for keyword-only mode (much noisier).
+| Secret | Notes |
+| --- | --- |
+| `SLACK_WEBHOOK_URL` | Required with default `REQUIRE_SLACK_WEBHOOK=true`. |
 
-5. **Run the workflow manually once**: Actions → *Daily data center news monitor* → *Run workflow*. Then verify:
-   - `FEED_URLS`, `KEYWORDS`, **`NEWSAPI_ANCHORS`** (if you use NewsAPI), and (recommended) `OUTAGE_SIGNALS` are set (`NEWSAPI_QUERY` may be empty if you skip NewsAPI).
-   - Secret `SLACK_WEBHOOK_URL` is set (the workflow sets `REQUIRE_SLACK_WEBHOOK=true`).
-   - The job succeeds, Slack shows the digest, and the **daily-digest-*** artifact contains `reports/daily_report_YYYY-MM-DD.md`.
+Optional repository **variables**: `FEED_URLS`, `KEYWORDS`, `OUTAGE_SIGNALS`, `TOPIC_RELAX_HOSTS`, `COMPANIES_CSV`, `COMPANY_FEEDS_JSON` — see [.env.example](.env.example).
 
-6. **Adjust the schedule** if needed: edit `.github/workflows/daily-monitor.yml` — cron uses UTC (`0 15 * * *` = 15:00 UTC daily).
+Workflow: install deps → **`python scripts/generate_company_feeds.py`** → **`python monitor.py`** → upload `reports/daily_report_*.md`.
 
 ## Local run
 
 ```bash
 cd dc-news-scraper
-python -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
+python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
-# Edit .env with real values (quote values that contain spaces, e.g. KEYWORDS="…")
-set -a && source .env && set +a         # zsh/bash
+set -a && source .env && set +a
+python scripts/generate_company_feeds.py   # after CSV edits
 python monitor.py
 ```
 
-With `REQUIRE_SLACK_WEBHOOK=false` (default), you can omit `SLACK_WEBHOOK_URL` locally and still get `reports/daily_report_YYYY-MM-DD.md`.
+**Runtime:** ~150+ HTTP fetches per run (official + one Google feed per company). Default request timeout is 35s per feed.
 
 ## Outputs
 
-- **Markdown**: `reports/daily_report_YYYY-MM-DD.md` — full list of matches with links and matched keywords.
-- **Slack**: Plain-text digest (capped length); for the full list, open the workflow run artifact from GitHub Actions.
+- Markdown digest — `reports/daily_report_<UTC-date>.md` with linked operator labels from the manifest.
+- Slack — plaintext summary capped for Slack limits.
 
-## Optional environment variables
+## Custom spreadsheet
 
-See [.env.example](.env.example) for **`NEWSAPI_ANCHORS`**, **`TOPIC_RELAX_HOSTS`**, `OUTAGE_SIGNALS`, default feeds, expanded `KEYWORDS`, `LOOKBACK_HOURS`, `NEWSAPI_PAGE_SIZE`, and `REQUIRE_SLACK_WEBHOOK`.
-
-**Bias toward AWS:** the AWS status **`all`** RSS emits many items; widening **`KEYWORDS`**, adding other status feeds, **`TOPIC_RELAX_HOSTS`**, and **`NEWSAPI_ANCHORS`** (plus removing bare **`facility`** / substring **`AWS`** false positives) keeps the digest on real DC/cloud outage news.
+Replace [`data/dc_companies.csv`](data/dc_companies.csv) (single `Company` column), then run `python scripts/generate_company_feeds.py`. To add more **trusted** Atom/RSS URLs, edit `OFFICIAL_BLOCKS` in [`scripts/generate_company_feeds.py`](scripts/generate_company_feeds.py) and regenerate.

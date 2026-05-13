@@ -1,10 +1,9 @@
-# Daily digest: RSS (+ optional NewsAPI) → Markdown + Slack.
-# Schedule uses UTC. Edit the cron expression to change run time.
+# Daily digest: curated operator RSS manifests → Markdown + Slack (no NewsAPI).
+# Schedule uses UTC. Edit cron to change cadence.
 name: Daily data center news monitor
 
 on:
   schedule:
-    # 15:00 UTC every day — adjust as needed
     - cron: "0 15 * * *"
   workflow_dispatch:
 
@@ -18,13 +17,8 @@ jobs:
       FEED_URLS: ${{ vars.FEED_URLS }}
       KEYWORDS: ${{ vars.KEYWORDS }}
       TOPIC_RELAX_HOSTS: ${{ vars.TOPIC_RELAX_HOSTS }}
-      NEWSAPI_ANCHORS: ${{ vars.NEWSAPI_ANCHORS }}
-      NEWSAPI_QUERY: ${{ vars.NEWSAPI_QUERY }}
       OUTAGE_SIGNALS: ${{ vars.OUTAGE_SIGNALS }}
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-      NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
-      LOOKBACK_HOURS: "48"
-      NEWSAPI_PAGE_SIZE: "40"
       REQUIRE_SLACK_WEBHOOK: "true"
 
     steps:
@@ -36,6 +30,9 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+      - name: Regenerate company feed manifest from CSV
+        run: python scripts/generate_company_feeds.py
 
       - name: Run monitor
         run: python monitor.py

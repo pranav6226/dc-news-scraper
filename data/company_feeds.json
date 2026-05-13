@@ -1,0 +1,1497 @@
+{
+  "_comment": "official_only omitted or true: status/IR — topic keyword gate waived. official_only false: Google News RSS scoped per CSV company — topic gate uses company name match in title/summary (see monitor.py).",
+  "feeds": [
+    {
+      "companies": [
+        "Amazon.com, Inc."
+      ],
+      "urls": [
+        "https://status.aws.amazon.com/rss/all.rss"
+      ]
+    },
+    {
+      "companies": [
+        "Microsoft Corporation"
+      ],
+      "urls": [
+        "https://azure.status.microsoft/status/feed/"
+      ]
+    },
+    {
+      "companies": [
+        "Meta Platforms, Inc."
+      ],
+      "urls": [
+        "https://metastatuspage.com/history.atom"
+      ]
+    },
+    {
+      "companies": [
+        "Digital Realty Trust, Inc.",
+        "MC Digital Realty, Inc."
+      ],
+      "urls": [
+        "https://investor.digitalrealty.com/rss/news-releases.xml"
+      ]
+    },
+    {
+      "companies": [
+        "Equinix, Inc."
+      ],
+      "urls": [
+        "https://equinixproductstatus.statuspage.io/history.atom",
+        "https://investor.equinix.com/rss/news-releases.xml",
+        "https://status.equinixmetal.com/history.atom"
+      ]
+    },
+    {
+      "companies": [
+        "Amazon.com, Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Amazon.com%2C+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Alphabet Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Alphabet+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Meta Platforms, Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Meta+Platforms%2C+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Microsoft Corporation"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Microsoft+Corporation%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Digital Realty Trust, Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Digital+Realty+Trust%2C+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "China Mobile Limited"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22China+Mobile+Limited%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Equinix, Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Equinix%2C+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "China Telecom Corporation Limited"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22China+Telecom+Corporation+Limited%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "NTT Global Data Centers Preparatory Corporation"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22NTT+Global+Data+Centers+Preparatory+Corporation%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "GDS Holdings Limited"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22GDS+Holdings+Limited%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "QTS Realty Trust, LLC"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22QTS+Realty+Trust%2C+LLC%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "MARA Holdings, Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22MARA+Holdings%2C+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Bitdeer Norway As"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Bitdeer+Norway+As%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Vantage Data Centers Management Company, LLC"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Vantage+Data+Centers+Management+Company%2C+LLC%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "CyrusOne Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22CyrusOne+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "China United Network Communications Group Co., Ltd."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22China+United+Network+Communications+Group+Co.%2C+Ltd.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Stack Infrastructure, Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Stack+Infrastructure%2C+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Range IDC"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Range+IDC%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Centrin Data Systems Co., Ltd."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Centrin+Data+Systems+Co.%2C+Ltd.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "VNET Group, Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22VNET+Group%2C+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Core Scientific, Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Core+Scientific%2C+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Riot Platforms, Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Riot+Platforms%2C+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "ChinData Group"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22ChinData+Group%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Alibaba Group Holding Limited"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Alibaba+Group+Holding+Limited%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "AirTrunk Pte Ltd."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22AirTrunk+Pte+Ltd.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "cloudHQ LLC"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22cloudHQ+LLC%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Atlas Power Data Center"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Atlas+Power+Data+Center%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Apple Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Apple+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Aligned Data Centers (Phoenix), LLC"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Aligned+Data+Centers+%28Phoenix%29%2C+LLC%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "CleanSpark, Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22CleanSpark%2C+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Tencent Holdings Limited - 騰訊控股有限公司"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Tencent+Holdings+Limited+-+%E9%A8%B0%E8%A8%8A%E6%8E%A7%E8%82%A1%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Genesis Digital Assets Limited"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Genesis+Digital+Assets+Limited%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Lancium LLC"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Lancium+LLC%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Miningstore"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Miningstore%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Bitfarms Ltd."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Bitfarms+Ltd.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Switch, Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Switch%2C+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Hut 8 Mining Corp."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Hut+8+Mining+Corp.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "GLP Global Ventures Limited"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22GLP+Global+Ventures+Limited%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Beijing Sinnet Technology Co.,Ltd"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Beijing+Sinnet+Technology+Co.%2CLtd%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "DataBank Holdings, Ltd."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22DataBank+Holdings%2C+Ltd.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Shanghai @hub Co.,Ltd."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Shanghai+%40hub+Co.%2CLtd.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Compass Datacenters, LLC"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Compass+Datacenters%2C+LLC%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Global Switch Holdings Limited"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Global+Switch+Holdings+Limited%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "HIVE Digital Technologies Ltd."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22HIVE+Digital+Technologies+Ltd.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Hotwon Group"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Hotwon+Group%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "COPT Defense Properties"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22COPT+Defense+Properties%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "EdgeConneX Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22EdgeConneX+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "STT Global Data Centres India Private Limited"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22STT+Global+Data+Centres+India+Private+Limited%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "KDDI Corporation"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22KDDI+Corporation%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "CoreSite Realty Corporation"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22CoreSite+Realty+Corporation%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Centersquare"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Centersquare%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Iron Mountain Data Centers, LLC"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Iron+Mountain+Data+Centers%2C+LLC%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "CNISP Group Co., Ltd."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22CNISP+Group+Co.%2C+Ltd.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Shanghai Baosight Software Co.,Ltd."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Shanghai+Baosight+Software+Co.%2CLtd.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Applied Digital Corporation"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Applied+Digital+Corporation%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Mapletree Industrial Trust"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Mapletree+Industrial+Trust%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Odata S.A."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Odata+S.A.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "NEXTDC Limited"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22NEXTDC+Limited%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Cipher Mining Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Cipher+Mining+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Colt Data Centre Services UK Limited"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Colt+Data+Centre+Services+UK+Limited%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Sabey Data Center Properties LLC"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Sabey+Data+Center+Properties+LLC%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Sabre56"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Sabre56%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Standard Power"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Standard+Power%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "X.AI LLC"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22X.AI+LLC%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Ascenty Data Centers e Telecomunicações S.A."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Ascenty+Data+Centers+e+Telecomunica%C3%A7%C3%B5es+S.A.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Hoyinn Data"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Hoyinn+Data%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Princeton Digital Group (Singapore) Pte. Limited"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Princeton+Digital+Group+%28Singapore%29+Pte.+Limited%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Tianjin Tianzhong Jiangtian Heavy Industry Co., Ltd."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Tianjin+Tianzhong+Jiangtian+Heavy+Industry+Co.%2C+Ltd.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Guangdong Aofei Data Technology Co., Ltd."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Guangdong+Aofei+Data+Technology+Co.%2C+Ltd.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Flexential Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Flexential+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Khazna Data Center Limited"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Khazna+Data+Center+Limited%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Prime Data Centers, Corp."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Prime+Data+Centers%2C+Corp.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Northern Data AG"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Northern+Data+AG%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "BitCluster"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22BitCluster%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "atNorth ehf"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22atNorth+ehf%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Keppel DC REIT"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Keppel+DC+REIT%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Blockstream Corporation Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Blockstream+Corporation+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Data4 Group"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Data4+Group%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Cologix, Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Cologix%2C+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Green Mountain AS"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Green+Mountain+AS%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Bridge Data Centres (International) Pte. Ltd."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Bridge+Data+Centres+%28International%29+Pte.+Ltd.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Edged Energy"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Edged+Energy%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Nxtra Data Limited"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Nxtra+Data+Limited%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Bitfury USA, Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Bitfury+USA%2C+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "BitStake Mining"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22BitStake+Mining%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Ebang International Holdings Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Ebang+International+Holdings+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Novva Data Centers"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Novva+Data+Centers%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Soluna Holdings, Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Soluna+Holdings%2C+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "CDC Data Centres"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22CDC+Data+Centres%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Baidu, Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Baidu%2C+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Minto"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Minto%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "CtrlS Datacenters Ltd."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22CtrlS+Datacenters+Ltd.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Enegix"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Enegix%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Crusoe Energy Systems LLC"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Crusoe+Energy+Systems+LLC%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "IREN Limited"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22IREN+Limited%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "VIRTUS Data Centres Ltd."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22VIRTUS+Data+Centres+Ltd.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "TeraWulf Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22TeraWulf+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Blackstone Real Estate Income Trust, Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Blackstone+Real+Estate+Income+Trust%2C+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Bitriver LP"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Bitriver+LP%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Polaris Technology Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Polaris+Technology+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "EdgeCore Internet Real Estate, LLC"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22EdgeCore+Internet+Real+Estate%2C+LLC%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Iadvantage Limited"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Iadvantage+Limited%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Scala Data Centers S.A."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Scala+Data+Centers+S.A.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Patrinely Group, LLC"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Patrinely+Group%2C+LLC%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Fujitsu Limited"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Fujitsu+Limited%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "PowerHouse Data Centers"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22PowerHouse+Data+Centers%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Netrality Property Trust, LLC"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Netrality+Property+Trust%2C+LLC%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Shanghai Yovole Networks Co., Ltd."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Shanghai+Yovole+Networks+Co.%2C+Ltd.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Merkle Standard LLC"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Merkle+Standard+LLC%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Galaxy Digital Holdings LP"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Galaxy+Digital+Holdings+LP%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Bitmain, Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Bitmain%2C+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Bohao Internet Data"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Bohao+Internet+Data%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "MC Digital Realty, Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22MC+Digital+Realty%2C+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Cogent Communications Holdings, Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Cogent+Communications+Holdings%2C+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Guangzhou Boda Data Technology Co., Ltd."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Guangzhou+Boda+Data+Technology+Co.%2C+Ltd.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Echelon Marketing"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Echelon+Marketing%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Glory Data"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Glory+Data%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Hangzhou Iron&Steel Group Company"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Hangzhou+Iron%26Steel+Group+Company%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Lumen Technologies, Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Lumen+Technologies%2C+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "T5 Data Centers, LLC"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22T5+Data+Centers%2C+LLC%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Yotta Infrastructure Solutions LLP"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Yotta+Infrastructure+Solutions+LLP%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "CEIcloud Data Storage Technology (Beijing) Co., Ltd."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22CEIcloud+Data+Storage+Technology+%28Beijing%29+Co.%2C+Ltd.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "MYRIG"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22MYRIG%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Sino-Ocean Capital Co., Ltd."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Sino-Ocean+Capital+Co.%2C+Ltd.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Meatec"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Meatec%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "GreenChain Technologies"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22GreenChain+Technologies%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Phoenix Group Plc"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Phoenix+Group+Plc%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Yondr Group Holdings B.V."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Yondr+Group+Holdings+B.V.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "LG Uplus Corp."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22LG+Uplus+Corp.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Verizon Communications Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Verizon+Communications+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Hyperco Data Center Strategies I Topco I Oy"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Hyperco+Data+Center+Strategies+I+Topco+I+Oy%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "TierPoint, LLC"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22TierPoint%2C+LLC%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "KT Cloud Co., Ltd."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22KT+Cloud+Co.%2C+Ltd.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Kehua Data Co., Ltd."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Kehua+Data+Co.%2C+Ltd.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "TA Realty LLC"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22TA+Realty+LLC%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "The9 Limited"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22The9+Limited%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Sify Technologies Limited"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Sify+Technologies+Limited%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Longrui Industry (Hainan) Co., Ltd."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Longrui+Industry+%28Hainan%29+Co.%2C+Ltd.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "H5 Data Centers LLC"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22H5+Data+Centers+LLC%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "IDC Frontier Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22IDC+Frontier+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "CICC East China Data Center"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22CICC+East+China+Data+Center%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Samsung SDS Co.,Ltd."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Samsung+SDS+Co.%2CLtd.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Borealis Data Center ehf."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Borealis+Data+Center+ehf.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Digi Power X Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Digi+Power+X+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "AboutBit Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22AboutBit+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "AI TECH FLSAY"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22AI+TECH+FLSAY%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Lendlease Group"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Lendlease+Group%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Stream Data Centers, L.P."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Stream+Data+Centers%2C+L.P.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "5C Data Centers"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%225C+Data+Centers%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Mawson Infrastructure Group Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Mawson+Infrastructure+Group+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Beijing Jinmao Green Building Technology Co. Ltd"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Beijing+Jinmao+Green+Building+Technology+Co.+Ltd%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "SK Broadband Co., Ltd."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22SK+Broadband+Co.%2C+Ltd.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Mining Cluster"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Mining+Cluster%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Public Joint Stock Company Rostelecom"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Public+Joint+Stock+Company+Rostelecom%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Future FinTech Group Inc."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Future+FinTech+Group+Inc.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Menlo Equities VI LP"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Menlo+Equities+VI+LP%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "fifteenfortyseven Critical Systems Realty, LLC"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22fifteenfortyseven+Critical+Systems+Realty%2C+LLC%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Neo Telemedia Limited"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Neo+Telemedia+Limited%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Monterey Mining"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Monterey+Mining%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Stella"
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Stella%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    },
+    {
+      "companies": [
+        "Validus Power Corp."
+      ],
+      "urls": [
+        "https://news.google.com/rss/search?q=%22Validus+Power+Corp.%22+%28%22data+center%22+OR+datacenter+OR+colocation+OR+colo+OR+hyperscale+OR+outage+OR+downtime+OR+incident+OR+disruption+OR+degraded+OR+unavailable+OR+failure+OR+fire+OR+power+OR+cooling+OR+blackout+OR+flood+OR+evacuation+OR+status+OR+maintenance+OR+fiber+OR+network%29&hl=en-US&gl=US&ceid=US%3Aen"
+      ],
+      "official_only": false
+    }
+  ]
+}
